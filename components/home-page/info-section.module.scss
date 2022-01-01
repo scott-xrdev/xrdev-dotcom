@@ -1,0 +1,26 @@
+@import '../../styles/mixins';
+
+.info {
+	background-color: #6d6d6d;
+	width: 100%;
+	color: #f8f8fa;
+	height: 20vh;
+
+	display: flex;
+	flex-direction: column;
+	place-items: center;
+	place-content: center;
+
+	div {
+		h2 {
+			font-family: 'Roboto';
+			font-size: 1.5rem;
+		}
+
+		@include desktop() {
+			max-width: 900px;
+			font-size: 2rem;
+			// padding: 2rem 0;
+		}
+	}
+}
