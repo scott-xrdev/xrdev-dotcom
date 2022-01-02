@@ -1,0 +1,20 @@
+.blogItem {
+	// border: 5px solid blue;
+	position: relative;
+	color: #f8f8fa;
+
+	.image img {
+		object-fit: cover;
+	}
+
+	.content {
+		position: absolute;
+		top: 0rem;
+		padding: 1rem;
+
+		h3 {
+			margin: 0;
+			font-size: 2rem;
+		}
+	}
+}

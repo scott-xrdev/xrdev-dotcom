@@ -55,7 +55,7 @@ const Navbar = () => {
 					onClick={showMobileNavMenu ? handleHamburgerClick : null}
 				>
 					<li>
-						<Link href="#dev-blogs">Dev Blogs</Link>
+						<Link href="/blogs">Dev Blogs</Link>
 					</li>
 					<li>
 						<Link href="/jobs">Jobs</Link>
