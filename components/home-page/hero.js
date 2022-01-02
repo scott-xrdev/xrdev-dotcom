@@ -10,12 +10,12 @@ const Hero = () => {
 				collaborate
 			</h1>
 			<div className={styles.linkBox}>
-				<Link href="/">
+				<Link href="/auth">
 					<a>
 						Join us and share something<span>&gt;</span>
 					</a>
 				</Link>
-				<Link href="/">
+				<Link href="/blogs">
 					<a>
 						Browse the dev blogs<span>&gt;</span>
 					</a>

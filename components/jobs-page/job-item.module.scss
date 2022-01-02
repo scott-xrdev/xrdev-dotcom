@@ -1,0 +1,66 @@
+.jobItem {
+	border-radius: 5px;
+	background-color: white;
+	padding: 0.5rem;
+	display: grid;
+	grid-template: 1fr / repeat(4, 1fr);
+	gap: 0.5rem;
+	align-items: center;
+
+	.image {
+		border: 5px solid #ebebeb;
+		width: 200px;
+		height: 150px;
+		border-radius: 5px;
+		overflow: hidden;
+	}
+	.image img {
+		object-fit: cover;
+	}
+
+	.jobInfo {
+		justify-self: flex-start;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.jobType {
+		align-self: flex-start;
+		color: #f8f8fa;
+		padding: 0.5rem;
+		border-radius: 5px;
+	}
+
+	.fullTime {
+		background-color: blue;
+	}
+
+	.partTime {
+		background-color: green;
+	}
+
+	.freelance {
+		background-color: purple;
+	}
+
+	.rightColumn {
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: space-around;
+
+		h4 {
+			margin: 0;
+		}
+	}
+
+	.location p {
+		font-size: 1.5rem;
+	}
+}
+
+.featured {
+	border: 1px solid rgb(110, 110, 110);
+	box-shadow: 0 0 15px black;
+}

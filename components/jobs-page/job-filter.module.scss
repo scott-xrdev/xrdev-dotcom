@@ -1,0 +1,86 @@
+.jobFilter {
+	display: grid;
+	grid-template: 2fr / 1fr;
+}
+
+.row1 {
+	display: grid;
+	grid-template: 1fr / repeat(5, auto);
+
+	.inputGroup input {
+		outline: none;
+		background-color: white;
+		border: none;
+		padding: 1rem;
+	}
+
+	.selectGroup {
+		position: relative;
+		display: flex;
+		width: 20em;
+		height: 3em;
+		border-radius: 0.25em;
+		overflow: hidden;
+
+		select {
+			outline: none;
+			border: none;
+			appearance: none;
+			box-shadow: none;
+
+			background-color: white;
+			cursor: pointer;
+			padding: 1rem;
+
+			flex: 1;
+			padding: 0 1em;
+			// color: #fff;
+			// background-color: var(--darkgray);
+			background-image: none;
+			cursor: pointer;
+		}
+
+		select::-ms-expand {
+			display: none;
+		}
+
+		&::after {
+			content: '\25BC';
+			position: absolute;
+			top: 0;
+			right: 0;
+			padding: 1em;
+			// background-color: #34495e;
+			transition: 0.25s all ease;
+			pointer-events: none;
+		}
+		/* Transition */
+		&:hover::after {
+			color: #5675ff;
+		}
+	}
+}
+
+.row2 {
+	display: flex;
+	justify-content: space-between;
+
+	.checkboxes {
+		display: flex;
+		list-style-type: none;
+		padding: 0;
+
+		li {
+			margin-right: 1rem;
+		}
+	}
+
+	button {
+		background-color: transparent;
+		border: none;
+
+		&:hover {
+			color: rgb(178, 173, 184);
+		}
+	}
+}

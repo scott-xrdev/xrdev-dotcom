@@ -6,7 +6,7 @@ import styles from './blog-item.module.scss';
 const BlogItem = () => {
 	return (
 		<li className={styles.blogItem}>
-			<Link href="/content/blogs/getting-started-with-vr-in-unity1">
+			<Link href="/blogs/getting-started-with-vr-in-unity1">
 				<a>
 					<div className={styles.image}>
 						<Image
