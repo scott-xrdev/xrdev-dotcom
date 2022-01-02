@@ -45,12 +45,15 @@ const Navbar = () => {
 	return (
 		<header className={headerClasses}>
 			<Link href="/">
-				<a>
+				<a onClick={showMobileNavMenu ? handleHamburgerClick : null}>
 					<Logo />
 				</a>
 			</Link>
 			<nav>
-				<ul className={navMenuClasses}>
+				<ul
+					className={navMenuClasses}
+					onClick={showMobileNavMenu ? handleHamburgerClick : null}
+				>
 					<li>
 						<Link href="#dev-blogs">Dev Blogs</Link>
 					</li>
@@ -58,10 +61,7 @@ const Navbar = () => {
 						<Link href="/jobs">Jobs</Link>
 					</li>
 					<li>
-						<Link href="/contact">Contact</Link>
-					</li>
-					<li>
-						<Link href="/about">About</Link>
+						<Link href="/auth">Login</Link>
 					</li>
 					{/* {session && (
 						<li>

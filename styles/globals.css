@@ -13,6 +13,10 @@ body {
 	font-family: 'Roboto', sans-serif;
 }
 
+main {
+	padding-bottom: 102px; /* footer height */
+}
+
 h1,
 h2,
 h3 {

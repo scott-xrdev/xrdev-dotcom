@@ -1,0 +1,163 @@
+@import '../../styles/mixins';
+
+.auth {
+	width: 100%;
+	margin: 2rem auto;
+	// padding: 2rem;
+
+	form {
+		display: flex;
+		flex-direction: column;
+		max-width: 425px;
+		width: 100%;
+		padding: 25px 50px;
+		margin: 0 auto;
+
+		h1 {
+			padding-left: 0;
+			margin-left: 0;
+			color: #333333;
+		}
+
+		input {
+			margin: 10px 0;
+			padding: 15px 20px;
+			line-height: 1.8;
+			border: 1px solid rgba(0, 0, 0, 0.1);
+			border-radius: 4px;
+			outline: none;
+			transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+			&:focus {
+				border-color: black;
+			}
+			&:disabled {
+				cursor: not-allowed;
+				background-color: rgba(#b3b3b3, 0.15);
+				opacity: 0.5;
+			}
+		}
+
+		button {
+			padding: 15px 60px;
+			margin-top: 10px;
+			font-weight: bold;
+			font-size: 16px;
+			line-height: 1.6;
+			text-align: center;
+			text-transform: uppercase;
+			border-radius: 4px;
+			// background: transparent;
+			background: #34dbdb;
+			color: white;
+			border: none;
+			outline: none;
+			transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+			&:not(:disabled) {
+				cursor: pointer;
+			}
+
+			@media (hover: hover) {
+				&:hover {
+					background-color: rgba(#34dbdb, 0.8);
+				}
+			}
+		}
+
+		.toggle {
+			font-size: 12px;
+			background-color: lighten(#b3b3b3, 17%);
+			color: #333333;
+			margin-top: 7em;
+			transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+
+			@media (hover: hover) {
+				&:hover {
+					background-color: #34dba1;
+					color: #ffffff;
+				}
+			}
+		}
+
+		@include desktop() {
+			box-shadow: 1px 2px 24px 2px rgba(0, 0, 0, 0.1);
+			border: 1px solid rgba(0, 0, 0, 0.05);
+		}
+	}
+
+	@include desktop() {
+		// max-width: 600px;
+		// box-shadow: 0 0 15px #000000;
+	}
+}
+
+// .auth {
+// 	margin: var(--size-8) auto;
+// 	width: 90%;
+// 	max-width: 35rem;
+// 	border-radius: 6px;
+// 	background-color: var(--color-grey-100);
+// 	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+// 	padding: var(--size-4);
+// 	text-align: center;
+// 	font-size: var(--size-6);
+// }
+
+// .auth h1 {
+// 	font-size: var(--size-16);
+// 	margin: var(--size-4) 0;
+// 	text-align: center;
+// }
+
+// .control {
+// 	margin-bottom: var(--size-2);
+// }
+
+// .control label {
+// 	display: block;
+// 	font-weight: bold;
+// 	margin-bottom: var(--size-2);
+// }
+
+// .control input {
+// 	font: inherit;
+// 	padding: var(--size-1);
+// 	border-radius: 4px;
+// 	width: 100%;
+// 	border: 1px solid var(--color-grey-400);
+// 	background-color: var(--color-grey-50);
+// }
+
+// .actions {
+// 	margin-top: 1.5rem;
+// 	display: flex;
+// 	flex-direction: column;
+// 	align-items: center;
+// }
+
+// .actions button {
+// 	cursor: pointer;
+// 	font: inherit;
+// 	color: var(--color-primary-50);
+// 	background-color: var(--color-primary-700);
+// 	border: 1px solid var(--color-primary-700);
+// 	border-radius: 4px;
+// 	padding: var(--size-2) var(--size-4);
+// }
+
+// .actions button:hover {
+// 	background-color: var(--color-primary-500);
+// 	border-color: var(--color-primary-500);
+// }
+
+// .actions .toggle {
+// 	margin-top: 1rem;
+// 	background-color: transparent;
+// 	color: var(--color-primary-600);
+// 	border: none;
+// 	padding: var(--size-2) var(--size-4);
+// }
+
+// .actions .toggle:hover {
+// 	background-color: transparent;
+// 	color: var(--color-primary-200);
+// }
