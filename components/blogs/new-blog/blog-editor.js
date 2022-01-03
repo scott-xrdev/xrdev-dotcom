@@ -21,7 +21,7 @@ const BlogEditor = () => {
 				</div>
 				<div className={styles.control}>
 					<label htmlFor="markdown">Markdown Blog Content</label>
-					<textarea id="markdown" rows="10" class="md"></textarea>
+					<textarea id="markdown" rows="10"></textarea>
 				</div>
 				<button className={styles.submitButton}>Submit Blog</button>
 			</div>
