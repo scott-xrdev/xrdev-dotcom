@@ -4,12 +4,8 @@ const JobFilter = () => {
 	return (
 		<form className={styles.jobFilter}>
 			<div className={styles.row1}>
-				{/* <div className={styles.inputGroup}> */}
 				<input type="text" placeholder="Search Keywords" />
-				{/* </div> */}
-				{/* <div className={styles.inputGroup}> */}
 				<input type="text" placeholder="All Locations" />
-				{/* </div> */}
 				<div className={styles.selectGroup}>
 					<select>
 						<option>Job Title</option>

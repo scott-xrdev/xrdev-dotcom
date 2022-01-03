@@ -8,9 +8,6 @@
 	grid-template: auto auto / auto auto;
 	gap: 0.5rem;
 	align-items: center;
-	// justify-items: center;
-	// justify-items: flex-start;
-	// justify-content: center;
 
 	.image {
 		@include mobileOnly() {

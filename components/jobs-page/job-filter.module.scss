@@ -7,6 +7,9 @@
 
 .row1 {
 	display: flex;
+	// flex-flow: wrap;
+	flex-wrap: wrap;
+
 	gap: 2px;
 	justify-content: space-between;
 
@@ -24,7 +27,8 @@
 
 		position: relative;
 		display: flex;
-		width: 20em;
+		// width: 20em;
+		min-width: 158px;
 		height: 3em;
 		border-radius: 0.25em;
 		overflow: hidden;
@@ -65,16 +69,16 @@
 		}
 	}
 
-	.selectGroup {
-		flex: 1;
+	// .selectGroup {
+	// 	flex: 1;
 
-		position: relative;
-		display: flex;
-		width: 20em;
-		height: 3em;
-		border-radius: 0.25em;
-		overflow: hidden;
-	}
+	// 	position: relative;
+	// 	display: flex;
+	// 	width: 20em;
+	// 	height: 3em;
+	// 	border-radius: 0.25em;
+	// 	overflow: hidden;
+	// }
 }
 
 .row2 {
@@ -83,6 +87,7 @@
 
 	.checkboxes {
 		display: flex;
+		flex-wrap: wrap;
 		list-style-type: none;
 		padding: 0;
 

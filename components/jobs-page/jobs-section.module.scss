@@ -1,5 +1,11 @@
+@import '../../styles/mixins';
+
 .jobs {
 	margin: auto;
-	margin-top: 2rem;
+	margin-top: 0.5rem;
 	max-width: 1170px;
+
+	@include desktop() {
+		margin-top: 2rem;
+	}
 }
