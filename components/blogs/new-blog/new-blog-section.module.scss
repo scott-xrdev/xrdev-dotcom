@@ -1,3 +1,5 @@
+@import '../../../styles/mixins';
+
 .newBlog {
 	// border: 5px solid orangered;
 
@@ -5,7 +7,15 @@
 	margin: auto;
 	margin-bottom: 1rem;
 
-	display: grid;
-	grid-template: auto auto / 1fr 1fr;
-	gap: 1rem;
+	@media (min-width: 1000px) {
+		display: grid;
+		grid-template: auto auto / 1fr 1fr;
+		gap: 1rem;
+	}
+}
+
+.singleColumn {
+	grid-template: auto auto / 1fr;
+	gap: 0rem;
+	align-content: center;
 }

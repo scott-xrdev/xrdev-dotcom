@@ -1,9 +1,9 @@
 import styles from './new-blog-view-toggle.module.scss';
 
-const NewBlogViewToggle = () => {
+const NewBlogViewToggle = (props) => {
 	return (
 		<div className={styles.toggle}>
-			<button>Toggle View</button>
+			<button onClick={props.handleClick}>Toggle Editor</button>
 		</div>
 	);
 };
