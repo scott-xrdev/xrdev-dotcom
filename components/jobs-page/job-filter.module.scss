@@ -1,13 +1,18 @@
+@import '../../styles/mixins';
+
 .jobFilter {
-	display: grid;
-	grid-template: 2fr / 1fr;
+	display: flex;
+	flex-direction: column;
 }
 
 .row1 {
-	display: grid;
-	grid-template: 1fr / repeat(5, auto);
+	display: flex;
+	gap: 2px;
+	justify-content: space-between;
 
-	.inputGroup input {
+	input {
+		flex: 1;
+
 		outline: none;
 		background-color: white;
 		border: none;
@@ -15,6 +20,8 @@
 	}
 
 	.selectGroup {
+		flex: 1;
+
 		position: relative;
 		display: flex;
 		width: 20em;
@@ -34,8 +41,6 @@
 
 			flex: 1;
 			padding: 0 1em;
-			// color: #fff;
-			// background-color: var(--darkgray);
 			background-image: none;
 			cursor: pointer;
 		}
@@ -58,6 +63,17 @@
 		&:hover::after {
 			color: #5675ff;
 		}
+	}
+
+	.selectGroup {
+		flex: 1;
+
+		position: relative;
+		display: flex;
+		width: 20em;
+		height: 3em;
+		border-radius: 0.25em;
+		overflow: hidden;
 	}
 }
 
