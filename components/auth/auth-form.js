@@ -60,7 +60,7 @@ const AuthForm = () => {
 	return (
 		<section className={styles.auth}>
 			<form onSubmit={submitHandler}>
-				<h1>{isLogin ? 'Log in' : 'Sign up'}</h1>
+				<h1>{isLogin ? 'Login' : 'Sign up'}</h1>
 				<input
 					type="email"
 					id="email"
