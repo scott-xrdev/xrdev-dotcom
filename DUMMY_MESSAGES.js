@@ -1,0 +1,77 @@
+export default [
+	{
+		id: 1,
+		timestamp: 'Dec 4',
+		author: 'Scott',
+		content: 'Cool blog post',
+		likes: 5,
+		replies: [
+			{
+				id: 3,
+				timestamp: 'Jan 1',
+				author: 'Adam',
+				content: 'I agree',
+				likes: 0,
+				replies: [],
+			},
+			{
+				id: 6,
+				timestamp: 'Jan 2',
+				author: 'Dan',
+				content: 'I disagree',
+				likes: 1,
+				replies: [],
+			},
+			{
+				id: 4,
+				timestamp: 'Jan 3',
+				author: 'Troy',
+				content: 'I also agree',
+				likes: 1,
+				replies: [
+					{
+						id: 5,
+						timestamp: 'Jan 3',
+						author: 'Scott',
+						content: 'Thanks',
+						likes: 0,
+						replies: [],
+					},
+					{
+						id: 7,
+						timestamp: 'Jan 4',
+						author: 'Rick',
+						content: 'Good',
+						likes: 0,
+						replies: [],
+					},
+				],
+			},
+		],
+	},
+	{
+		id: 2,
+		timestamp: 'Dec 20',
+		author: 'John',
+		content: 'Great blog',
+		likes: 3,
+		replies: [],
+	},
+	{
+		id: 8,
+		timestamp: 'Dec 20',
+		author: 'John',
+		content: 'Great blog',
+		likes: 3,
+		replies: [
+			{
+				id: 9,
+				timestamp: 'Dec 20',
+				author: 'John',
+				content: 'Great blog',
+				likes: 3,
+				replies: [],
+			},
+		],
+	},
+];

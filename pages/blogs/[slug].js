@@ -4,6 +4,7 @@ import Head from 'next/head';
 import BlogContent from '../../components/blogs/blog-content';
 
 import { getBlogData, getBlogFiles } from '../../lib/blogs-util';
+import DiscussionSection from '../../components/blogs/discussion/discussion-section';
 
 const BlogDetailPage = (props) => {
 	return (
@@ -13,6 +14,7 @@ const BlogDetailPage = (props) => {
 				<meta name="description" content={props.blog.excerpt} />
 			</Head>
 			<BlogContent blog={props.blog} />
+			<DiscussionSection />
 		</Fragment>
 	);
 };
