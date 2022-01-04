@@ -59,11 +59,12 @@ const BlogPreview = (props) => {
 		},
 		code(code) {
 			const { className, children } = code;
-			const language = className.split('-')[1];
+			const language = className && className.split('-')[1];
 
 			return (
 				<SyntaxHighlighter
 					style={atomDark}
+					// language={className}
 					language={language}
 					children={children}
 				/>
