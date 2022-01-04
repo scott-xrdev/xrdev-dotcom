@@ -1,12 +1,15 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import Logo from './logo.js';
+import { useSession, signOut } from 'next-auth/client';
 
+import Logo from './logo.js';
+import Hamburger from './hamburger.js';
 import useScrollListener from '../../hooks/useScrollListener/index.js';
 import styles from './navbar.module.scss';
-import Hamburger from './hamburger.js';
 
 const Navbar = () => {
+	const [session, loading] = useSession();
+
 	const [headerClasses, setheaderClasses] = useState('');
 	const [navMenuClasses, setNavMenuClasses] = useState('');
 	const [showMobileNavMenu, setShowMobileNavMenu] = useState(false);
@@ -42,6 +45,10 @@ const Navbar = () => {
 		setNavMenuClasses(_navMenuClasses);
 	};
 
+	const logoutHandler = () => {
+		signOut();
+	};
+
 	return (
 		<header className={headerClasses}>
 			<Link href="/">
@@ -54,9 +61,11 @@ const Navbar = () => {
 					className={navMenuClasses}
 					onClick={showMobileNavMenu ? handleHamburgerClick : null}
 				>
-					<li>
-						<Link href="/blogs/new-blog">Create Blog</Link>
-					</li>
+					{session && (
+						<li>
+							<Link href="/blogs/new-blog">Create Blog</Link>
+						</li>
+					)}
 					<li>
 						<Link href="/learn">Learn</Link>
 					</li>
@@ -69,17 +78,9 @@ const Navbar = () => {
 					<li>
 						<Link href="/jobs">Jobs</Link>
 					</li>
-					<li>
-						<Link href="/auth">Login</Link>
-					</li>
-					{/* {session && (
-						<li>
-							<Link href="/profile">Profile</Link>
-						</li>
-					)}
 					{session && (
 						<li>
-							<Link href="/posts/new-post">Create Blog</Link>
+							<Link href="/profile">Profile</Link>
 						</li>
 					)}
 					{!session && !loading && (
@@ -91,7 +92,7 @@ const Navbar = () => {
 						<li>
 							<button onClick={logoutHandler}>Logout</button>
 						</li>
-					)} */}
+					)}
 				</ul>
 				<Hamburger
 					handleClick={handleHamburgerClick}

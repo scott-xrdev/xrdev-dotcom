@@ -22,9 +22,12 @@
 		top: -400%;
 		left: 0;
 		// top: 5rem;
+		display: flex;
 		flex-direction: column;
+
 		background-color: #f8f8fa;
 		width: 100%;
+		padding: 0;
 		text-align: center;
 		transition: all 0.3s ease;
 		// box-shadow: 0 0 0 10px 27px rgba(0, 0, 0, 0.2);
@@ -32,13 +35,12 @@
 	}
 
 	li {
-		padding: 2rem;
-	}
-
-	li a {
-		color: rgb(49, 49, 49);
-		font-size: 1rem;
-		transition: all 0.5s ease;
+		// padding: 2rem;
+		a {
+			color: rgb(49, 49, 49);
+			font-size: 1rem;
+			transition: all 0.5s ease;
+		}
 	}
 
 	button {
@@ -73,11 +75,19 @@
 		}
 
 		li {
+			align-self: center;
 			padding: 0;
 		}
 	}
 
 	@include mobileOnly() {
+		li {
+			padding: 2rem;
+
+			a {
+			}
+		}
+
 		.activeNavMenu {
 			top: 5rem;
 		}
