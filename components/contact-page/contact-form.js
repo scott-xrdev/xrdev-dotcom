@@ -1,4 +1,5 @@
 import { useRef, useContext } from 'react';
+import { sendContactData } from '../../lib/contact-util';
 
 import styles from './contact-form.module.scss';
 
@@ -9,7 +10,31 @@ const ContactForm = () => {
 
 	const sendMessageHandler = async (event) => {
 		event.preventDefault();
-		console.log('sendMessageHandler called');
+
+		// show pending notification here
+
+		const enteredEmail = emailInputRef.current.value;
+		const enteredName = nameInputRef.current.value;
+		const enteredMessage = messageInputRef.current.value;
+
+		// TODO add client side validation
+
+		let data;
+		try {
+			data = await sendContactData({
+				email: enteredEmail,
+				name: enteredName,
+				message: enteredMessage,
+			});
+
+			// show success message
+
+			emailInputRef.current.value = '';
+			nameInputRef.current.value = '';
+			messageInputRef.current.value = '';
+		} catch (error) {
+			// TODO show error notification
+		}
 	};
 
 	return (
