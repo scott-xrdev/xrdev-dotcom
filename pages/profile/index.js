@@ -1,7 +1,19 @@
+import { Fragment } from 'react';
+import Head from 'next/head';
+
 import { getSession } from 'next-auth/client';
+import UserProfile from '../../components/profile-page/user-profile';
 
 const ProfilePage = () => {
-	return <div>ProfilePage</div>;
+	return (
+		<Fragment>
+			<Head>
+				<title>Profile</title>
+				<meta name="description" content="Your XRDEV.com profile page" />
+			</Head>
+			<UserProfile />
+		</Fragment>
+	);
 };
 
 export const getServerSideProps = async (context) => {
