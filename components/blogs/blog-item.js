@@ -3,23 +3,35 @@ import Image from 'next/image';
 
 import styles from './blog-item.module.scss';
 
-const BlogItem = () => {
+const BlogItem = (props) => {
+	const { title, image, excerpt, date, slug } = props.blog;
+
+	const formattedDate = new Date(date).toLocaleDateString('en-US', {
+		timeZone: 'UTC',
+		day: 'numeric',
+		month: 'long',
+		year: 'numeric',
+	});
+
+	const imagePath = `/images/blogs/${slug}/${image}`;
+	const linkPath = `/blogs/${slug}`;
+
 	return (
 		<li className={styles.blogItem}>
-			<Link href="/blogs/getting-started-with-vr-in-unity1">
+			<Link href={linkPath}>
 				<a>
 					<div className={styles.image}>
 						<Image
-							src="/images/blogs/getting-started-with-vr-in-unity1/getting-started-vr.png"
-							alt={'image alt placeholder'}
+							src={imagePath}
+							alt={title}
 							width={900}
 							height={500}
 							layout="responsive"
 						/>
 					</div>
 					<div className={styles.content}>
-						<h3>Title</h3>
-						<time>20 December, 2021</time>
+						<h3>{title}</h3>
+						<time>{formattedDate}</time>
 					</div>
 				</a>
 			</Link>

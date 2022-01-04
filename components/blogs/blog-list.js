@@ -2,13 +2,12 @@ import BlogItem from './blog-item';
 
 import styles from './blog-list.module.scss';
 
-const BlogList = () => {
+const BlogList = (props) => {
 	return (
 		<ul className={styles.blogList}>
-			<BlogItem />
-			<BlogItem />
-			<BlogItem />
-			<BlogItem />
+			{props.blogs.map((blog) => (
+				<BlogItem key={blog.slug} blog={blog} />
+			))}
 		</ul>
 	);
 };
