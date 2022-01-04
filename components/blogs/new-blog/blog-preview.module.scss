@@ -1,0 +1,66 @@
+.blogContent {
+	// border: 5px solid orangered;
+
+	width: 100%;
+	max-width: 900px;
+	margin: 0 auto;
+
+	.blogHeader {
+		color: rgb(49, 49, 49);
+		text-align: center;
+
+		padding-bottom: 1rem;
+		border-bottom: 8px solid rgb(49, 49, 49);
+		margin: 1rem 0;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		gap: 1rem;
+
+		@media (max-width: 550px) {
+			flex-direction: column-reverse;
+			margin: 0;
+		}
+
+		h1 {
+			flex: 1;
+			font-size: 2rem;
+		}
+
+		.coverImage {
+			flex: 1;
+			height: 100%;
+			width: 100%;
+			// width: 100%;
+			// max-width: 600px;
+
+			img {
+				object-fit: cover;
+			}
+		}
+	}
+
+	.image {
+		margin: 1rem auto;
+		width: 100%;
+		max-width: 600px;
+	}
+
+	h2 {
+		font-size: 1.75rem;
+	}
+
+	p,
+	ul,
+	li {
+		color: rgb(49, 49, 49);
+		font-size: 1.25rem;
+	}
+
+	.markdown {
+		@media (max-width: 900px) {
+			padding: 1rem;
+		}
+	}
+}
