@@ -8,6 +8,7 @@ import styles from './blog-editor.module.scss';
 const BlogEditor = () => {
 	const {
 		title,
+		coverImage,
 		markdownText,
 		excerpt,
 		setTitle,
@@ -27,8 +28,11 @@ const BlogEditor = () => {
 		setTitle(text);
 	};
 	const onCoverImageInputChange = (event) => {
-		const image = event.target.files[0];
-		setCoverImage(image);
+		if (event.target.files && event.target.files[0]) {
+			const i = event.target.files[0];
+
+			setCoverImage(i);
+		}
 	};
 	const onExcerptInputChange = (event) => {
 		const text = event.currentTarget.value;
@@ -42,15 +46,25 @@ const BlogEditor = () => {
 	const submitBlogHandler = async (event) => {
 		event.preventDefault();
 
-		const blogDetails = {
-			title: title,
-			content: markdownText,
-			excerpt: excerpt,
-		};
+		// const blogDetails = {
+		// 	title: title,
+		// 	content: markdownText,
+		// 	excerpt: excerpt,
+		// };
+
+		const formData = new FormData();
+		formData.append('title', title);
+		formData.append('excerpt', excerpt);
+		formData.append('content', markdownText);
+		formData.append(
+			'file',
+			coverImage,
+			title.trim().replace(/\s+/g, '-').toLowerCase()
+		);
 
 		let data;
 		try {
-			data = await submitNewBlog(blogDetails);
+			data = await submitNewBlog(formData);
 		} catch (error) {}
 
 		// TODO show notifications

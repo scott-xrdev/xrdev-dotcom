@@ -26,10 +26,6 @@ const BlogPreview = (props) => {
 		if (coverImage) {
 			setImageUrl(URL.createObjectURL(coverImage));
 		}
-
-		if (!coverImage) {
-			setImageUrl('');
-		}
 	}, [coverImage]);
 
 	// const { blog } = props;
@@ -64,7 +60,6 @@ const BlogPreview = (props) => {
 			return (
 				<SyntaxHighlighter
 					style={atomDark}
-					// language={className}
 					language={language}
 					children={children}
 				/>

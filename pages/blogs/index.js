@@ -12,7 +12,6 @@ const AllBlogsPage = (props) => {
 				<title>All Posts</title>
 				<meta name="description" content="A list of all xrdev blog posts" />
 			</Head>
-			{/* <AllBlogs /> */}
 			<AllBlogs blogs={props.blogs} />
 		</Fragment>
 	);

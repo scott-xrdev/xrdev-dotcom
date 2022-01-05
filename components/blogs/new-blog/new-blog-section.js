@@ -24,8 +24,6 @@ const NewBlogSection = (props) => {
 			markdownText: markdownText,
 			coverImage: coverImage ? URL.createObjectURL(coverImage) : '',
 		});
-
-		console.log(blog);
 	}, [title, excerpt, markdownText, coverImage]);
 
 	const toggleEditorEnabled = () => {
