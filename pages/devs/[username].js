@@ -1,4 +1,4 @@
-import DevProfileSection from '../../components/dev-profile-page/dev-profile-section';
+import DevProfileSection from '../../components/devs/dev-profile-page/dev-profile-section';
 
 const DevProfilePage = () => {
 	return (
