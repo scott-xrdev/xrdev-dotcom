@@ -61,19 +61,20 @@ const Navbar = () => {
 					className={navMenuClasses}
 					onClick={showMobileNavMenu ? handleHamburgerClick : null}
 				>
-					{session && (
-						<li>
-							<Link href="/blogs/new-blog">Create Blog</Link>
-						</li>
-					)}
 					<li>
-						<Link href="/learn">Learn</Link>
-					</li>
-					<li>
-						<Link href="/blogs">Dev Blogs</Link>
+						<Link href="/blogs">Blogs</Link>
 					</li>
 					<li>
 						<Link href="/devs">Devs</Link>
+					</li>
+					<li>
+						<Link href="/teams">Teams</Link>
+					</li>
+					<li>
+						<Link href="/projects">Projects</Link>
+					</li>
+					<li>
+						<Link href="/learn">Learn</Link>
 					</li>
 					<li>
 						<Link href="/jobs">Jobs</Link>

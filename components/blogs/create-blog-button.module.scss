@@ -1,16 +1,13 @@
-@import '../../../styles/mixins';
+@import '../../styles/mixins';
 
-.toggle {
-	// border: 5px solid purple;
+.createBlogButton {
+	// margin-top: 1rem;
 
-	grid-row: 1;
-	grid-column: span 2;
+	// @media (max-width: 1000px) {
+	// 	margin-bottom: 1rem;
+	// }
 
-	margin-top: 1rem;
-
-	@media (max-width: 1000px) {
-		margin-bottom: 1rem;
-	}
+	margin: 1rem;
 
 	display: flex;
 	justify-content: center;
@@ -25,7 +22,7 @@
 		text-transform: uppercase;
 		border-radius: 4px;
 		// background: transparent;
-		background: #db3487;
+		background: #db9b34;
 		color: white;
 		border: none;
 		outline: none;
@@ -36,7 +33,7 @@
 
 		@media (hover: hover) {
 			&:hover {
-				background-color: rgba(#db3487, 0.8);
+				background-color: rgba(#db9b34, 0.8);
 			}
 		}
 	}
