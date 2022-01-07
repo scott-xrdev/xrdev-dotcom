@@ -62,4 +62,17 @@ export default NextAuth({
 	pages: {
 		signIn: '/auth',
 	},
+	callbacks: {
+		async jwt({ token, account, user }) {
+			// Persist the OAuth access_token to the token right after signin
+			if (user) {
+				token.isAdmin = user.isAdmin;
+			}
+			return token;
+		},
+		async session({ session, token, user }) {
+			session.isAdmin = token.isAdmin;
+			return session;
+		},
+	},
 });

@@ -1,3 +1,5 @@
+import { getIndeedUnityVRJobs } from '../../lib/jobs-util';
+
 import styles from './job-filter.module.scss';
 
 const JobFilter = () => {
