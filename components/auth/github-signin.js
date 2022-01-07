@@ -17,6 +17,19 @@ const GithubSignin = ({ isLogin, signIn }) => {
 
 	useEffect(() => {
 		console.log(router.query);
+
+		const hasError = router.query.error != null;
+
+		if (hasError) {
+			if (router.query.error === 'OAuthAccountNotLinked') {
+				console.log('account already linked to this email address');
+			} else if (router.query.error[0]) {
+				console.log(
+					'seriously, account is already linked to this email address'
+				);
+			}
+		}
+
 		// TODO: if detect "OAuthAccountNotLinked" error in query, show notification that you must
 		// log in with the original method for each account linked to an individual email address
 	}, [router]);
