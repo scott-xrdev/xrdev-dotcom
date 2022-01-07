@@ -10,7 +10,7 @@ import clientPromise from '../../../lib/mongodb';
 import { verifyPassword } from '../../../lib/auth';
 
 export default NextAuth({
-	secret: 'LlKfdasfdsa3mAmAh9/h2HwMfsFo4fdsafdax5mLg=',
+	secret: process.env.SECRET,
 	session: {
 		strategy: 'jwt',
 	},

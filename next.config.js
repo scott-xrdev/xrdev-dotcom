@@ -8,6 +8,7 @@ module.exports = (phase) => {
 				mongodb_password: process.env.MONGODB_PASSWORD_DEV,
 				mongodb_cluster: process.env.MONGODB_CLUSTER_DEV,
 				mongodb_database: process.env.MONGODB_DATABASE_DEV,
+				NEXTAUTH_URL: process.env.NEXTAUTH_URL_DEV,
 			},
 		};
 	}
@@ -18,6 +19,7 @@ module.exports = (phase) => {
 			mongodb_password: process.env.MONGODB_PASSWORD_PROD,
 			mongodb_cluster: process.env.MONGODB_CLUSTER_PROD,
 			mongodb_database: process.env.MONGODB_DATABASE_PROD,
+			NEXTAUTH_URL: process.env.NEXTAUTH_URL_PROD,
 		},
 	};
 };
