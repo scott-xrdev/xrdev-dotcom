@@ -1,6 +1,8 @@
 import NextAuth from 'next-auth';
 import CredentialsProvider from 'next-auth/providers/credentials';
 import GithubProvider from 'next-auth/providers/github';
+import DiscordProvider from 'next-auth/providers/discord';
+import GoogleProvider from 'next-auth/providers/google';
 import { MongoDBAdapter } from '@next-auth/mongodb-adapter';
 
 import { connectToDatabase } from '../../../lib/db';
@@ -16,6 +18,14 @@ export default NextAuth({
 		GithubProvider({
 			clientId: process.env.GITHUB_ID,
 			clientSecret: process.env.GITHUB_SECRET,
+		}),
+		DiscordProvider({
+			clientId: process.env.DISCORD_ID,
+			clientSecret: process.env.DISCORD_SECRET,
+		}),
+		GoogleProvider({
+			clientId: process.env.GOOGLE_ID,
+			clientSecret: process.env.GOOGLE_SECRET,
 		}),
 		CredentialsProvider({
 			async authorize(credentials) {
