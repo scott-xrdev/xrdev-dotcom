@@ -34,4 +34,4 @@ yarn-error.log*
 .vercel
 
 # private data
-next.config.js
+.env

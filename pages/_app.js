@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Provider } from 'next-auth/client';
+import { SessionProvider } from 'next-auth/react';
 
 import { BlogEditorContextProvider } from '../store/blog-editor-context';
 import Layout from '../components/layout/layout';
@@ -8,9 +8,9 @@ import { config } from '@fortawesome/fontawesome-svg-core';
 import '@fortawesome/fontawesome-svg-core/styles.css';
 config.autoAddCss = false;
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }) {
 	return (
-		<Provider session={pageProps.session}>
+		<SessionProvider session={session}>
 			<BlogEditorContextProvider>
 				<Layout>
 					<Head>
@@ -47,7 +47,7 @@ function MyApp({ Component, pageProps }) {
 					<Component {...pageProps} />
 				</Layout>
 			</BlogEditorContextProvider>
-		</Provider>
+		</SessionProvider>
 	);
 }
 

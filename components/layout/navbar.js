@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
-import { useSession, signOut } from 'next-auth/client';
+import { useSession, signOut } from 'next-auth/react';
 
 import Logo from './logo.js';
 import Hamburger from './hamburger.js';
@@ -8,7 +8,7 @@ import useScrollListener from '../../hooks/useScrollListener/index.js';
 import styles from './navbar.module.scss';
 
 const Navbar = () => {
-	const [session, loading] = useSession();
+	const { data: session, status } = useSession();
 
 	const [headerClasses, setheaderClasses] = useState('');
 	const [navMenuClasses, setNavMenuClasses] = useState('');
@@ -84,7 +84,7 @@ const Navbar = () => {
 							<Link href="/profile">Profile</Link>
 						</li>
 					)}
-					{!session && !loading && (
+					{!session && status !== 'loading' && (
 						<li>
 							<Link href="/auth">Login</Link>
 						</li>

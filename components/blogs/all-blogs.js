@@ -1,13 +1,13 @@
 import { Fragment } from 'react';
 import Link from 'next/link';
-import { useSession } from 'next-auth/client';
+import { useSession } from 'next-auth/react';
 import BlogList from './blog-list';
 
 import styles from './all-blogs.module.scss';
 import CreateBlogButton from './create-blog-button';
 
 const AllBlogs = (props) => {
-	const [session, loading] = useSession();
+	const { data: session, status } = useSession();
 
 	return (
 		<Fragment>

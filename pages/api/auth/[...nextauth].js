@@ -1,15 +1,20 @@
 import NextAuth from 'next-auth';
-import Providers from 'next-auth/providers';
+import CredentialsProvider from 'next-auth/providers/credentials';
+import GithubProvider from 'next-auth/providers/github';
 
 import { connectToDatabase } from '../../../lib/db';
 import { verifyPassword } from '../../../lib/auth';
 
 export default NextAuth({
 	session: {
-		jwt: true,
+		strategy: 'jwt',
 	},
 	providers: [
-		Providers.Credentials({
+		GithubProvider({
+			clientId: process.env.GITHUB_ID,
+			clientSecret: process.env.GITHUB_SECRET,
+		}),
+		CredentialsProvider({
 			async authorize(credentials) {
 				const client = await connectToDatabase();
 

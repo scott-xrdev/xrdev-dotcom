@@ -1,7 +1,7 @@
 import { Fragment } from 'react';
 import Head from 'next/head';
 
-import { getSession } from 'next-auth/client';
+import { getSession } from 'next-auth/react';
 import UserProfile from '../../components/profile-page/user-profile';
 
 const ProfilePage = () => {
