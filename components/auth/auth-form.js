@@ -2,8 +2,9 @@ import { useState, useRef } from 'react';
 import { useRouter } from 'next/router';
 import { signIn } from 'next-auth/react';
 
-import styles from './auth-form.module.scss';
+import GithubSignin from './github-signin';
 import { createUser } from '../../lib/auth';
+import styles from './auth-form.module.scss';
 
 const AuthForm = () => {
 	const emailInputRef = useRef();
@@ -75,6 +76,11 @@ const AuthForm = () => {
 					required
 				/>
 				<button>{isLogin ? 'Login' : 'Create Account'}</button>
+				<GithubSignin
+					isLogin={isLogin}
+					signIn={signIn}
+					createUser={createUser}
+				/>
 				<button
 					type="button"
 					className={styles.toggle}

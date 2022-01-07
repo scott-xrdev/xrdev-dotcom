@@ -1,0 +1,23 @@
+.divider {
+	display: flex;
+	align-items: center;
+	margin: 1em -1em;
+	&:before,
+	&:after {
+		content: '';
+		flex: 1;
+		height: 1px;
+		margin: 0 1em;
+		background-color: rgb(49, 49, 49);
+	}
+}
+
+.container {
+	width: 100%;
+
+	.github {
+		padding: 3px;
+		margin: 0;
+		width: 100%;
+	}
+}
