@@ -53,6 +53,9 @@ const AuthForm = () => {
 				// TODO send a notification to log in with new credentials
 			} catch (error) {
 				console.log(error);
+
+				// TODO send a notification about the error
+				// maybe the email is already registered through a different provider
 			}
 		}
 	};
