@@ -3,6 +3,10 @@
 	position: relative;
 	color: #f8f8fa;
 
+	a {
+		color: inherit;
+	}
+
 	.image {
 		img {
 			object-fit: cover;

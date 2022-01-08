@@ -1,9 +1,19 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faExternalLinkAlt } from '@fortawesome/free-solid-svg-icons';
 import styles from './job-item.module.scss';
 
 const JobItem = ({ job }) => {
+	const formattedDate = job.date_posted
+		? new Date(job.date_posted).toLocaleDateString('en-US', {
+				day: 'numeric',
+				month: 'long',
+				year: 'numeric',
+		  })
+		: null;
+
 	return (
 		<li
 			className={
@@ -11,46 +21,20 @@ const JobItem = ({ job }) => {
 				styles.jobItem
 			}
 		>
-			<div className={styles.image}>
-				<Image
-					src="/images/blogs/getting-started-with-vr-in-unity1/getting-started-vr.png"
-					alt={job.title}
-					width={200}
-					height={150}
-					layout="responsive"
-				/>
-			</div>
 			<div className={styles.jobInfo}>
-				{job.hours === 'full' && (
-					<div className={`${styles.jobType} ${styles.fullTime}`}>
-						Full-Time
-					</div>
-				)}
-				{job.hours === 'part' && (
-					<div className={`${styles.jobType} ${styles.partTime}`}>
-						Part-Time
-					</div>
-				)}
-				{job.hours === 'freelance' && (
-					<div className={`${styles.jobType} ${styles.freelance}`}>
-						Freelance
-					</div>
-				)}
-				<h3>{job.title}</h3>
-				<span>{job.company_name}</span>
-				<time>Date: {job.date_posted}</time>
+				<a href={job.detail_url} target="_blank" className={styles.jobTitle}>
+					{job.title}
+				</a>
+				{job.company_name && <p>Company: {job.company_name}</p>}
+				<p>Posted: {formattedDate ? formattedDate : 'N/A'}</p>
+				<p>{job.city ? job.city : 'Remote'}</p>
+				<p>{job.country}</p>
 			</div>
-			<div className={styles.location}>
-				<p>{job.city}</p>
-				<span>{job.country}</span>
-			</div>
-			<div className={styles.rightColumn}>
-				<h4>{job.pay}</h4>
-				<Link href={job.detail_url}>
-					<button>See Details</button>
-				</Link>
-				{job.featured && <div>Featured Listing</div>}
-			</div>
+			<a href={job.detail_url} target="_blank" className={styles.linkIconBox}>
+				<FontAwesomeIcon icon={faExternalLinkAlt} />
+				<span>{job.source}</span>
+			</a>
+			<p className={styles.description}>{job.description}</p>
 		</li>
 	);
 };

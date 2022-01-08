@@ -14,13 +14,6 @@ const JobsSection = () => {
 			return;
 		}
 
-		// const fetchJobsAsyncWrapper = async () => {
-		// 	const data = await fetchJobs();
-		// 	setJobs(data);
-		// };
-
-		// fetchJobsAsyncWrapper();
-
 		fetchJobs().then((data) => {
 			console.log(data);
 			setJobs(data.jobs);
@@ -30,7 +23,7 @@ const JobsSection = () => {
 	return (
 		<section className={styles.jobs}>
 			<JobFilter setFilter={setFilter} />
-			<JobList jobs={jobs} />
+			{jobs.length > 0 ? <JobList jobs={jobs} /> : <p>Loading...</p>}
 		</section>
 	);
 };

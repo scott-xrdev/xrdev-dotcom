@@ -4,102 +4,40 @@
 	border-radius: 5px;
 	background-color: white;
 	padding: 0.5rem;
-	display: grid;
-	grid-template: auto auto / auto auto;
-	gap: 0.5rem;
 	align-items: center;
+	height: 100%;
+	display: grid;
+	grid-template: auto auto / 1fr auto;
 
-	.image {
-		@include mobileOnly() {
-			grid-column: 2;
-			grid-row: 1;
-			justify-self: center;
-		}
-
-		border: 5px solid #ebebeb;
-		width: 200px;
-		height: 150px;
-		border-radius: 5px;
-		overflow: hidden;
-	}
-	.image img {
-		object-fit: cover;
+	p {
+		margin: 0;
 	}
 
 	.jobInfo {
-		justify-self: flex-start;
-		display: flex;
-		flex-direction: column;
-
-		@include mobileOnly() {
-			grid-column: 1;
-			grid-row: 1;
-
-			// justify-self: auto;
-			// align-items: center;
-		}
-	}
-
-	.jobType {
 		align-self: flex-start;
-		color: #f8f8fa;
-		padding: 0.5rem;
-		border-radius: 5px;
+		grid-column: 1;
+		grid-row: 1;
+
+		.jobTitle {
+			font-size: 1.3rem;
+		}
 	}
 
-	.fullTime {
-		background-color: blue;
-	}
+	.linkIconBox {
+		grid-column: 2;
+		grid-row: 1;
+		align-self: flex-start;
 
-	.partTime {
-		background-color: green;
-	}
-
-	.freelance {
-		background-color: purple;
-	}
-
-	.rightColumn {
-		height: 100%;
 		display: flex;
 		flex-direction: column;
-		gap: 0.5rem;
-		align-items: center;
-		justify-content: space-around;
-
-		h4 {
-			margin: 0;
-
-			@media (min-width: 900px) {
-				font-size: 1.25rem;
-			}
-		}
-
-		@include desktop() {
-			justify-self: center;
-		}
+		align-items: flex-end;
 	}
 
-	.location {
-		// justify-self: center;
-	}
-
-	.location p {
-		font-size: 1.25rem;
-		margin: 0;
-
-		@media (min-width: 900px) {
-			font-size: 1.5rem;
-		}
-	}
-
-	// @media (min-width: 900px) {
-	// 	display: grid;
-	// 	grid-template: 1fr / repeat(4, 1fr);
-	// }
-	@include desktop() {
-		display: grid;
-		grid-template: 1fr / repeat(4, 1fr);
+	.description {
+		margin-top: 1rem;
+		grid-column: span 2;
+		grid-row: 2;
+		justify-self: center;
 	}
 }
 
