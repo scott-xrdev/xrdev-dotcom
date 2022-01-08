@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 import styles from './job-item.module.scss';
 
@@ -13,7 +14,7 @@ const JobItem = ({ job }) => {
 			<div className={styles.image}>
 				<Image
 					src="/images/blogs/getting-started-with-vr-in-unity1/getting-started-vr.png"
-					alt={'image alt placeholder'}
+					alt={job.title}
 					width={200}
 					height={150}
 					layout="responsive"
@@ -36,8 +37,8 @@ const JobItem = ({ job }) => {
 					</div>
 				)}
 				<h3>{job.title}</h3>
-				<span>{job.company}</span>
-				<time>Date: {job.date}</time>
+				<span>{job.company_name}</span>
+				<time>Date: {job.date_posted}</time>
 			</div>
 			<div className={styles.location}>
 				<p>{job.city}</p>
@@ -45,7 +46,9 @@ const JobItem = ({ job }) => {
 			</div>
 			<div className={styles.rightColumn}>
 				<h4>{job.pay}</h4>
-				<button>See Details</button>
+				<Link href={job.detail_url}>
+					<button>See Details</button>
+				</Link>
 				{job.featured && <div>Featured Listing</div>}
 			</div>
 		</li>
