@@ -22,8 +22,8 @@ const JobItem = ({ job }) => {
 			}
 		>
 			<div className={styles.jobInfo}>
-				<a href={job.detail_url} target="_blank" className={styles.jobTitle}>
-					{job.title}
+				<a href={job.detail_url} target="_blank">
+					<div className={styles.jobTitle}>{job.title}</div>
 				</a>
 				{job.company_name && <p>Company: {job.company_name}</p>}
 				<p>Posted: {formattedDate ? formattedDate : 'N/A'}</p>

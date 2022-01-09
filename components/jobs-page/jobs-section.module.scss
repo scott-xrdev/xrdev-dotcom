@@ -3,7 +3,8 @@
 .jobs {
 	margin: auto;
 	margin-top: 0.5rem;
-	max-width: 1170px;
+	// max-width: 1170px;
+	max-width: 900px;
 
 	@include desktop() {
 		margin-top: 2rem;

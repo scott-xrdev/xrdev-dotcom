@@ -8,7 +8,7 @@ const JobFilter = () => {
 			<div className={styles.row1}>
 				<input type="text" placeholder="Search Keywords" />
 				<input type="text" placeholder="All Locations" />
-				{/* <div className={styles.selectGroup}>
+				<div className={styles.selectGroup}>
 					<select>
 						<option>Job Title</option>
 						<option>Animator</option>
@@ -27,11 +27,11 @@ const JobFilter = () => {
 						<option>Other</option>
 						<option>Any Game Engine</option>
 					</select>
-				</div> */}
+				</div>
 				<button>Search Jobs</button>
 			</div>
 			<div className={styles.row2}>
-				{/* <ul className={styles.checkboxes}>
+				<ul className={styles.checkboxes}>
 					<li>
 						<input type="checkbox" />
 						<label>Freelance</label>
@@ -56,7 +56,7 @@ const JobFilter = () => {
 						<input type="checkbox" />
 						<label>Remote</label>
 					</li>
-				</ul> */}
+				</ul>
 				<button>Clear Filters</button>
 			</div>
 		</form>
