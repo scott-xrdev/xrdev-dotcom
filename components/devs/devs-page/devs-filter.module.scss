@@ -11,7 +11,7 @@
 	flex-wrap: wrap;
 
 	gap: 2px;
-	justify-content: space-between;
+	justify-content: flex-end;
 
 	input {
 		flex: 1;
@@ -30,6 +30,7 @@
 		// width: 20em;
 		min-width: 158px;
 		height: 3em;
+		// height: 100%;
 		border-radius: 0.25em;
 		overflow: hidden;
 
@@ -79,6 +80,38 @@
 	// 	border-radius: 0.25em;
 	// 	overflow: hidden;
 	// }
+	button {
+		// flex: 1;
+		padding: 10px 60px;
+		// margin-top: 10px;
+		min-width: 224px;
+		max-height: 48px;
+		font-weight: bold;
+		font-size: 16px;
+		line-height: 1.6;
+		text-align: center;
+		text-transform: uppercase;
+		border-radius: 4px;
+		// background: transparent;
+		background: #db3434;
+		color: white;
+		border: none;
+		outline: none;
+		transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+		&:not(:disabled) {
+			cursor: pointer;
+		}
+
+		@media (hover: hover) {
+			&:hover {
+				background-color: rgba(#db3434, 0.8);
+			}
+		}
+
+		@media (max-width: 629px) {
+			flex: 1;
+		}
+	}
 }
 
 .row2 {
