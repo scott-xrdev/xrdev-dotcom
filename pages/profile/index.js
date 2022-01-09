@@ -3,6 +3,7 @@ import Head from 'next/head';
 
 import { getSession } from 'next-auth/react';
 import UserProfile from '../../components/profile-page/user-profile';
+import UserProfileSection from '../../components/profile-page/user-profile-section';
 
 const ProfilePage = () => {
 	return (
@@ -11,7 +12,8 @@ const ProfilePage = () => {
 				<title>Profile</title>
 				<meta name="description" content="Your XRDEV.com profile page" />
 			</Head>
-			<UserProfile />
+			<UserProfileSection />
+			{/* <UserProfile /> */}
 		</Fragment>
 	);
 };

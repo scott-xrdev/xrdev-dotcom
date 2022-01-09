@@ -1,0 +1,25 @@
+@import '../../styles/mixins';
+
+.avatar {
+	// position: absolute;
+	width: 100px;
+	height: 100px;
+	margin: -50px 0 0 0;
+	border-radius: 75%;
+	border: 5px solid #f8f8fa;
+	// box-shadow: 0px 0px 20px black;
+
+	img {
+		border-radius: 75px;
+		object-fit: cover;
+	}
+
+	@include desktop() {
+		width: 150px;
+		height: 149px;
+		margin: -75px 0 0 0;
+		border-radius: 75%;
+		border: 8px solid #f8f8fa;
+		// box-shadow: 0px 0px 20px black;
+	}
+}

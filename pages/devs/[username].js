@@ -1,11 +1,7 @@
-import DevProfileSection from '../../components/devs/dev-profile-page/dev-profile-section';
+import UserProfileSection from '../../components/profile-page/user-profile-section';
 
 const DevProfilePage = () => {
-	return (
-		<div>
-			<DevProfileSection />
-		</div>
-	);
+	return <UserProfileSection />;
 };
 
 export default DevProfilePage;

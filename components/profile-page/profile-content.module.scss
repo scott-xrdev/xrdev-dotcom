@@ -1,0 +1,23 @@
+.content {
+	display: flex;
+	flex-wrap: wrap;
+	.pinned {
+		flex: 1;
+	}
+
+	.blogs {
+		flex: 1;
+	}
+
+	.teams {
+		flex: 1;
+	}
+
+	.projects {
+		flex: 1;
+	}
+
+	.replies {
+		flex: 1;
+	}
+}
