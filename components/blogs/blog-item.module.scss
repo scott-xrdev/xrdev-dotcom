@@ -10,6 +10,7 @@
 	.image {
 		img {
 			object-fit: cover;
+			transition: transform 0.3s ease;
 		}
 		// img::after {
 		// 	content: '';
@@ -60,4 +61,8 @@
 	// 	top: 0;
 	// 	left: 0;
 	// }
+
+	&:hover img {
+		transform: scale(1.05);
+	}
 }
