@@ -11,6 +11,7 @@ const DiscussionSection = () => {
 	const [loading, setLoading] = useState(false);
 	const [comments, setComments] = useState([]);
 	const [count, setCount] = useState(0);
+	const [rerenderer, setRerenderer] = useState(0);
 	const router = useRouter();
 	const slug = router.query.slug;
 
@@ -21,24 +22,38 @@ const DiscussionSection = () => {
 				const _comments = data.comments;
 				setComments(_comments);
 				setLoading(false);
-				setCount(countComments(_comments));
 			})
 			.catch((err) => {
 				setLoading(false);
 				console.log(err);
 			});
-	}, [router]);
+	}, [router, rerenderer]);
+
+	useEffect(() => {
+		setCount(countComments(comments));
+	}, [comments]);
 
 	// const count = countMessages(DUMMY_MESSAGES);
 
 	return (
 		<section className={styles.discussion}>
 			<h1>Discussion ({count})</h1>
-			<NewCommentForm autofocusTextArea={false} />
+			<NewCommentForm
+				autofocusTextArea={false}
+				rerenderer={rerenderer}
+				setRerenderer={setRerenderer}
+			/>
 			{loading ? (
 				<p>Loading...</p>
 			) : (
-				comments && comments.map((comment) => <Message message={comment} />)
+				comments &&
+				comments.map((comment) => (
+					<Message
+						message={comment}
+						rerenderer={rerenderer}
+						setRerenderer={setRerenderer}
+					/>
+				))
 			)}
 		</section>
 	);

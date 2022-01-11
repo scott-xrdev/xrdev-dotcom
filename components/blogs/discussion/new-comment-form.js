@@ -1,13 +1,15 @@
 import { Fragment, useState, useRef } from 'react';
 import { useRouter } from 'next/router';
 
-import { createNewComment } from '../../../lib/comments-util';
+import { createNewComment, getComments } from '../../../lib/comments-util';
 import styles from './new-comment-form.module.scss';
 
 const NewCommentForm = ({
 	setShowNewCommentForm,
 	autofocusTextArea,
 	parentId,
+	rerenderer,
+	setRerenderer,
 }) => {
 	const [showButtons, setShowButtons] = useState(false);
 	const textAreaRef = useRef();
@@ -40,7 +42,10 @@ const NewCommentForm = ({
 
 		if (content) {
 			const comment = await createNewComment({ content, slug, parentId });
-			console.log(comment);
+
+			if (comment) {
+				setRerenderer(rerenderer + 1);
+			}
 		}
 
 		if (setShowNewCommentForm != undefined) {

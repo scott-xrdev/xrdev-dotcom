@@ -5,7 +5,7 @@ import { faHeart, faComment } from '@fortawesome/free-regular-svg-icons';
 import styles from './message.module.scss';
 import NewCommentForm from './new-comment-form';
 
-const Message = ({ message }) => {
+const Message = ({ message, rerenderer, setRerenderer }) => {
 	const [showNewCommentForm, setShowNewCommentForm] = useState(false);
 
 	// add code snippets to comments
@@ -43,6 +43,8 @@ const Message = ({ message }) => {
 					setShowNewCommentForm={setShowNewCommentForm}
 					autofocusTextArea
 					parentId={message._id}
+					rerenderer={rerenderer}
+					setRerenderer={setRerenderer}
 				/>
 			)}
 			{message.replies.map((reply) => (
