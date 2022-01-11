@@ -1,10 +1,20 @@
 import { Fragment, useState, useRef } from 'react';
+import { useRouter } from 'next/router';
 
+import { createNewComment } from '../../../lib/comments-util';
 import styles from './new-comment-form.module.scss';
 
 const NewCommentForm = ({ setShowNewCommentForm, autofocusTextArea }) => {
 	const [showButtons, setShowButtons] = useState(false);
+	// const [slug, setSlug] = useState('');
 	const textAreaRef = useRef();
+
+	const router = useRouter();
+	const slug = router.query.slug;
+
+	// useEffect(() => {
+	// 	setSlug(router.query.slug);
+	// }, router);
 
 	const textAreaFocusHandler = () => {
 		setShowButtons(true);
@@ -27,11 +37,15 @@ const NewCommentForm = ({ setShowNewCommentForm, autofocusTextArea }) => {
 		setShowButtons(false);
 	};
 
-	const handleSubmit = (event) => {
+	const handleSubmit = async (event) => {
 		event.preventDefault();
 
 		const content = textAreaRef.current.value;
-		console.log(content);
+
+		if (content) {
+			const comment = await createNewComment({ content, slug });
+			console.log(comment);
+		}
 
 		if (setShowNewCommentForm != undefined) {
 			setShowNewCommentForm(false);
@@ -39,6 +53,7 @@ const NewCommentForm = ({ setShowNewCommentForm, autofocusTextArea }) => {
 		}
 
 		setShowButtons(false);
+
 		textAreaRef.current.value = '';
 	};
 

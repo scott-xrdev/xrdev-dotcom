@@ -62,10 +62,8 @@ const BlogEditor = () => {
 			title.trim().replace(/\s+/g, '-').toLowerCase()
 		);
 
-		let data;
-		try {
-			data = await submitNewBlog(formData);
-		} catch (error) {}
+		const data = await submitNewBlog(formData);
+		console.log(data);
 
 		// TODO show notifications
 

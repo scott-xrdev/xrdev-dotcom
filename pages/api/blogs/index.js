@@ -3,6 +3,8 @@ import formidable from 'formidable';
 import fs from 'fs';
 
 import { createBlog, saveImage } from '../../../lib/blogs-util';
+import Blog from '../../../models/Blog';
+import User from '../../../models/User';
 
 export const config = {
 	api: {
@@ -44,9 +46,34 @@ const handler = async (req, res) => {
 			try {
 				createBlog(blogData);
 				await saveImage(coverImage, blogData.slug, imageFileName);
-				res.status(201).json({ message: 'Successfully added blog' });
 			} catch (error) {
 				res.status(500).json({ message: 'Blog could not be added' });
+			}
+
+			let blog;
+			let user;
+			try {
+				console.log('blogData.slug', blogData.slug);
+				user = await User.findOne({ email: session.user.email });
+				blog = new Blog({
+					title: blogData.title,
+					date: blogData.date,
+					content: blogData.content,
+					slug: blogData.slug,
+					author: user._id,
+				});
+
+				user.blogs.push(blog);
+				await blog.save();
+				await user.save();
+				res.status(200).json({
+					message: 'Blog created and saved to database',
+					slug: blog.slug,
+				});
+			} catch (error) {
+				res
+					.status(500)
+					.json({ message: 'Blog could not be saved to database' });
 			}
 		});
 
