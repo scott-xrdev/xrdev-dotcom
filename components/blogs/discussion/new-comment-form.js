@@ -4,17 +4,16 @@ import { useRouter } from 'next/router';
 import { createNewComment } from '../../../lib/comments-util';
 import styles from './new-comment-form.module.scss';
 
-const NewCommentForm = ({ setShowNewCommentForm, autofocusTextArea }) => {
+const NewCommentForm = ({
+	setShowNewCommentForm,
+	autofocusTextArea,
+	parentId,
+}) => {
 	const [showButtons, setShowButtons] = useState(false);
-	// const [slug, setSlug] = useState('');
 	const textAreaRef = useRef();
 
 	const router = useRouter();
 	const slug = router.query.slug;
-
-	// useEffect(() => {
-	// 	setSlug(router.query.slug);
-	// }, router);
 
 	const textAreaFocusHandler = () => {
 		setShowButtons(true);
@@ -28,9 +27,6 @@ const NewCommentForm = ({ setShowNewCommentForm, autofocusTextArea }) => {
 		}
 
 		if (content) {
-			console.log(
-				'you wrote a reply, cannot destroy it until you delete it manually'
-			);
 			return;
 		}
 
@@ -43,7 +39,7 @@ const NewCommentForm = ({ setShowNewCommentForm, autofocusTextArea }) => {
 		const content = textAreaRef.current.value;
 
 		if (content) {
-			const comment = await createNewComment({ content, slug });
+			const comment = await createNewComment({ content, slug, parentId });
 			console.log(comment);
 		}
 

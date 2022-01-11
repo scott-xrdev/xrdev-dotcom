@@ -53,7 +53,6 @@ const handler = async (req, res) => {
 			let blog;
 			let user;
 			try {
-				console.log('blogData.slug', blogData.slug);
 				user = await User.findOne({ email: session.user.email });
 				blog = new Blog({
 					title: blogData.title,
@@ -76,22 +75,6 @@ const handler = async (req, res) => {
 					.json({ message: 'Blog could not be saved to database' });
 			}
 		});
-
-		// const saveImageFile = async (file, slug) => {
-		// 	const data = fs.readFileSync(file.path);
-		// 	fs.writeFileSync(`./public/images/blogs/${slug}/${file.name}`, data);
-		// 	await fs.unlinkSync(file.path);
-		// 	return;
-		// };
-
-		// console.log(blog);
-
-		// try {
-		// 	createBlog(blog);
-		// 	res.status(201).json({ message: 'Successfully added blog', blog: blog });
-		// } catch (error) {
-		// 	res.status(500).json({ message: 'Blog could not be added' });
-		// }
 	}
 };
 

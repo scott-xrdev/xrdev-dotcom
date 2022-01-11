@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import { autopopulate as Populate } from '../lib/comments-util';
 
 const { Schema } = mongoose;
 
@@ -10,7 +11,7 @@ const CommentSchema = new Schema({
 		type: Schema.Types.ObjectId,
 		ref: 'User',
 	},
-	date: {
+	timestamp: {
 		type: Date,
 		default: Date.now,
 	},
@@ -25,6 +26,15 @@ const CommentSchema = new Schema({
 		},
 	],
 });
+
+CommentSchema.pre('findOne', Populate('replies')).pre(
+	'find',
+	Populate('replies')
+);
+// CommentSchema.pre('findOne', Populate('author'))
+// 	.pre('find', Populate('author'))
+// 	.pre('findOne', Populate('replies'))
+// 	.pre('find', Populate('replies'));
 
 export default mongoose.models.Comment ||
 	mongoose.model('Comment', CommentSchema);

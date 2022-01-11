@@ -6,26 +6,30 @@ import Blog from '../../../models/Blog';
 
 const handler = async (req, res) => {
 	const body = JSON.parse(req.body);
-	console.log(body.slug);
 
 	if (req.method === 'POST') {
 		const session = await getSession({ req: req });
 
 		if (!session) {
-			res.status(401).json({ message: 'Not authenticated.' });
-			return;
+			return res.status(401).json({ message: 'Not authenticated.' });
 		}
 
 		await connectMongoose();
 
 		let user;
 		let blog;
+		let parent;
 		try {
 			user = await User.findOne({ email: session.user.email });
 			blog = await Blog.findOne({ slug: body.slug });
-			console.log(blog.slug);
+
+			if (body.parentId) {
+				console.log('parentId: ', body.parentId);
+				parent = await Comment.findById(body.parentId);
+				console.log('parent: ', parent);
+			}
 		} catch (error) {
-			res.status(500).json({ message: 'Not found' });
+			return res.status(500).json({ message: 'Not found' });
 		}
 
 		let comment;
@@ -36,17 +40,24 @@ const handler = async (req, res) => {
 				content: body.content,
 			});
 			user.comments.push(comment);
-			blog.comments.push(comment);
+
+			if (parent) {
+				parent.replies.push(comment);
+				await parent.save();
+			} else {
+				blog.comments.push(comment);
+				await blog.save();
+			}
+
 			await comment.save();
 			await user.save();
-			await blog.save();
 		} catch (error) {
-			res
+			return res
 				.status(500)
 				.json({ message: 'Something went wrong when creating comment' });
 		}
 
-		res.status(200).json({ message: 'success', comment: comment });
+		return res.status(200).json({ message: 'success', comment: comment });
 	}
 };
 

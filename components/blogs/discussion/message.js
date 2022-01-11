@@ -19,7 +19,7 @@ const Message = ({ message }) => {
 	};
 
 	return (
-		<div key={message.id} className={styles.message}>
+		<div key={message._id} className={styles.message}>
 			<div className={styles.content}>
 				<div className={styles.author}>{message.author}</div>
 				<div className={styles.timestamp}>{message.timestamp}</div>
@@ -42,6 +42,7 @@ const Message = ({ message }) => {
 				<NewCommentForm
 					setShowNewCommentForm={setShowNewCommentForm}
 					autofocusTextArea
+					parentId={message._id}
 				/>
 			)}
 			{message.replies.map((reply) => (
