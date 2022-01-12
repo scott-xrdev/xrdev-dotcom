@@ -1,0 +1,95 @@
+@import '../../styles/mixins';
+
+.teamFilter {
+	// border: 5px solid orangered;
+
+	display: flex;
+	flex-direction: column;
+
+	@include desktop() {
+		margin-top: 1rem;
+	}
+
+	.row1 {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		gap: 2px;
+
+		input {
+			flex: 1;
+
+			height: 60px;
+			outline: none;
+			background-color: white;
+			border: none;
+			padding: 1rem;
+		}
+
+		select {
+			position: relative;
+			flex: 1;
+
+			height: 60px;
+			outline: none;
+			background-color: white;
+			border: none;
+			padding: 1rem;
+			cursor: pointer;
+		}
+
+		button {
+			flex: 1;
+			height: 60px;
+			font-weight: bold;
+			font-size: 16px;
+			line-height: 1.6;
+			text-align: center;
+			text-transform: uppercase;
+			border-radius: 4px;
+			background: #34dbb1;
+			color: white;
+			border: none;
+			outline: none;
+			transition: all 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+			&:not(:disabled) {
+				cursor: pointer;
+			}
+
+			@media (hover: hover) {
+				&:hover {
+					background-color: rgba(#34dbb1, 0.8);
+				}
+			}
+
+			@media (max-width: 629px) {
+				flex: 1;
+			}
+		}
+	}
+
+	.row2 {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		.checkboxes {
+			list-style: none;
+			padding: 0;
+
+			display: flex;
+			gap: 1rem;
+		}
+
+		button {
+			background-color: transparent;
+			border: none;
+			padding: 0;
+			transition: all 0.3s ease;
+
+			&:hover {
+				color: rgb(178, 173, 184);
+			}
+		}
+	}
+}

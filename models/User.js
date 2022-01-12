@@ -37,10 +37,34 @@ const UserSchema = new Schema({
 			ref: 'Blog',
 		},
 	],
+	savedBlogs: [
+		{
+			type: Schema.Types.ObjectId,
+			ref: 'Blog',
+		},
+	],
 	comments: [
 		{
 			type: Schema.Types.ObjectId,
 			ref: 'Comment',
+		},
+	],
+	teams: [
+		{
+			type: Schema.Types.ObjectId,
+			ref: 'Team',
+		},
+	],
+	projects: [
+		{
+			type: Schema.Types.ObjectId,
+			ref: 'Project',
+		},
+	],
+	followedProjects: [
+		{
+			type: Schema.Types.ObjectId,
+			ref: 'Project',
 		},
 	],
 	followers: [
