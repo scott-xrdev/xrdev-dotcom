@@ -1,0 +1,74 @@
+@import '../../styles/mixins';
+
+.courseDetailSection {
+	max-width: 900px;
+	margin: auto;
+
+	display: flex;
+	flex-direction: column;
+	// align-items: center;
+
+	line-height: 2.3rem;
+
+	@include desktop() {
+		line-height: 3rem;
+	}
+
+	h2 {
+		font-size: 3rem;
+		line-height: initial;
+		text-align: center;
+		width: 100%;
+	}
+
+	h3 {
+		font-size: 1.75rem;
+	}
+
+	ul {
+		list-style: none;
+		padding: 0;
+		// margin: auto;
+
+		li {
+			// margin: 1rem;
+		}
+	}
+
+	.courseHeader {
+		font-size: 2rem;
+	}
+
+	.parts {
+		margin-left: 3rem;
+
+		p {
+			margin-left: 1rem;
+		}
+	}
+
+	.featuresList {
+		margin-left: 5rem;
+		list-style: inherit;
+		font-size: 1.5rem;
+		font-weight: bold;
+	}
+
+	.courseSubHeader {
+		margin-left: 0.5rem;
+	}
+
+	p {
+		font-size: 1.5rem;
+
+		span {
+			color: black;
+			font-weight: 900;
+			font-size: 1.6rem;
+		}
+	}
+
+	@media (max-width: 1200px) {
+		padding: 1rem;
+	}
+}
