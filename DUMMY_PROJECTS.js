@@ -1,14 +1,15 @@
 export default [
 	{
 		id: 1,
+		title: 'Dummy Project Title',
 		admins: ['61d8417bdc26ebaabcf80a9b'],
-		team: [1],
+		team: { name: 'Team 1' },
 		needs: ['modeler', 'programmer'],
 		image: '/images/teams/team-image.png',
 		description: 'This is the description for the dummy ',
 		updates: [
 			{
-				timestamp: new Date.now(),
+				timestamp: Date.now(),
 				content: 'this is the content for the dummy update',
 			},
 		],
@@ -17,8 +18,9 @@ export default [
 	},
 	{
 		id: 2,
+		title: 'Dummy Project Title',
 		admins: ['61d8417bdc26ebaabcf80a9b'],
-		team: [3],
+		team: { name: 'Team 3' },
 		needs: ['modeler', 'programmer'],
 		image: '/images/teams/team-image.png',
 		description: 'This is the description for the dummy ',
@@ -28,14 +30,15 @@ export default [
 	},
 	{
 		id: 3,
+		title: 'Dummy Project Title',
 		admins: ['61d8417bdc26ebaabcf80a9b'],
-		team: [3],
+		team: { name: 'Team 3' },
 		needs: ['modeler', 'programmer'],
 		image: '/images/teams/team-image.png',
 		description: 'This is the description for the dummy ',
 		updates: [
 			{
-				timestamp: new Date.now(),
+				timestamp: Date.now(),
 				content: 'this is the content for the dummy update',
 			},
 		],
