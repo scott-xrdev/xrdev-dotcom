@@ -16,7 +16,11 @@ const JobsSection = () => {
 
 		fetchJobs().then((data) => {
 			console.log(data);
-			setJobs(data.jobs);
+
+			const sortedJobs = data.jobs.sort((jobA, jobB) =>
+				new Date(jobA.date_posted) > new Date(jobB.date_posted) ? -1 : 1
+			);
+			setJobs(sortedJobs);
 		});
 	}, [filter]);
 
